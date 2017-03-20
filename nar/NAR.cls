@@ -1685,7 +1685,7 @@ doi:10.1093/nar/\@shortjname\@artid
 \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
 \def\@biblabel#1{}
 \else
-\usepackage[authoryear,sort,comma]{NAR-natbib}
+\usepackage[authoryear,sort&compress,comma]{NAR-natbib}
 \let\mycite\cite
 \let\cite\citep
 \setlength{\bibhang}{11pt}
