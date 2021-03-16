@@ -367,9 +367,28 @@ FUNCTION {format.names}
     % i.e. no space in between the last name and first name initial
     % and between the first name and second name initials. -allan-
       nameptr #1 >
-	{ namesleft #1 >
-	    { ", " * t * }
-	    { numnames #2 >
+%	For TexLive legacy versions
+%	{ namesleft #1 >
+%	    { ", " * t * }
+%	    { numnames #2 >
+%	For TexLive2020
+        {
+          nameptr #3
+          #1 + =
+          numnames #4
+          > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$
+          namesleft #1 >
+            { ", " * t * }
+            {
+              s nameptr "{ll}" format.name$ duplicate$ "others" =
+                { 't := }
+                { pop$ }
+              if$
+              numnames #2 >
 %		{ "," * } % remove this comma TDS
 		{ " " * }
 		'skip$
