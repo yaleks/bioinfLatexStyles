@@ -2,7 +2,8 @@
 % http://bioinformatics.oupjournals.org/
 % http://www.lecb.ncifcrf.gov/~toms/latex.html
 %
-%    version = 1.02 of bioinformatics.bst 2004 Sep 23
+%    version = 1.03 of bioinformatics.bst 2021 Mar 16
+% 2021 Mar 16, 1.03: modified by Thomas Krannich (see notes below)
 % 2004 Sep 23, 1.02: modified by Allan A. Sioson (see notes below)
 % 2001 Apr  2, 1.01: origin by Bruce Shapiro from jmb.bst
 %
@@ -74,6 +75,11 @@
 %
 % Allan A. Sioson (virginia tech, va 24061-0106, asioson@vt.edu)
 % added the following modifications 
+%
+%   2021 March 16 (TKR) New TeXLive2020 could not interprete the threshold
+%                       for a maximum of authors to stop enumerating and 
+%                       abbreviate with 'et al'. Now the the bibliography
+%                       enumerates at most two authors again.
 %
 %   2004 September 21 (AAS) Bioinformatics Journal uses 'and' instead of &
 %                           hence all & are reverted to 'and'.
@@ -375,9 +381,9 @@ FUNCTION {format.names}
 
 %	For TexLive2020
         {
-          nameptr #1		% @Thomas
+          nameptr #1
           #1 + =
-          numnames #2		% @Thomas
+          numnames #2
           > and
             { "others" 't :=
               #1 'namesleft := }
