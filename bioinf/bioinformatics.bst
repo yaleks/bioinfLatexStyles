@@ -375,9 +375,9 @@ FUNCTION {format.names}
 
 %	For TexLive2020
         {
-          nameptr #2		% @Thomas
+          nameptr #1		% @Thomas
           #1 + =
-          numnames #3		% @Thomas
+          numnames #2		% @Thomas
           > and
             { "others" 't :=
               #1 'namesleft := }
