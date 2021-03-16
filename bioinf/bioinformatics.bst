@@ -372,23 +372,36 @@ FUNCTION {format.names}
 %	    { ", " * t * }
 %	    { numnames #2 >
 %	For TexLive2020
+
         {
-          nameptr #3
-          #1 + =
-          numnames #4
-          > and
-            { "others" 't :=
-              #1 'namesleft := }
-            'skip$
-          if$
-          namesleft #1 >
-            { ", " * t * }
-            {
-              s nameptr "{ll}" format.name$ duplicate$ "others" =
-                { 't := }
-                { pop$ }
-              if$
-              numnames #2 >
+        nameptr #2
+        #1 + =
+        numnames #2
+        > and
+          { "\bibinfo{person}{others}" 't :=
+            #1 'namesleft := }
+          'skip$
+        if$
+        namesleft #1 >
+
+%        {
+%          nameptr #3
+%          #1 + =
+%          numnames #4
+%          > and
+%            { "others" 't :=
+%              #1 'namesleft := }
+%            'skip$
+%          if$
+%          namesleft #1 >
+%            { ", " * t * }
+%            {
+%              s nameptr "{ll}" format.name$ duplicate$ "others" =
+%                { 't := }
+%                { pop$ }
+%              if$
+%              numnames #2 >
+	      
 %		{ "," * } % remove this comma TDS
 		{ " " * }
 		'skip$
